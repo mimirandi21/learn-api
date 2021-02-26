@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  governor: MyString
+  senator: 
+  congressmen: 
+  flag: MyString
+  electoral: 1
+
+two:
+  governor: MyString
+  senator: 
+  congressmen: 
+  flag: MyString
+  electoral: 1

@@ -1,0 +1,51 @@
+class PoliticsController < ApplicationController
+  before_action :set_politic, only: [:show, :update, :destroy]
+
+  # GET /politics
+  def index
+    @politics = Politic.all
+
+    render json: @politics
+  end
+
+  # GET /politics/1
+  def show
+    render json: @politic
+  end
+
+  # POST /politics
+  def create
+    @politic = Politic.new(politic_params)
+
+    if @politic.save
+      render json: @politic, status: :created, location: @politic
+    else
+      render json: @politic.errors, status: :unprocessable_entity
+    end
+  end
+
+  # PATCH/PUT /politics/1
+  def update
+    if @politic.update(politic_params)
+      render json: @politic
+    else
+      render json: @politic.errors, status: :unprocessable_entity
+    end
+  end
+
+  # DELETE /politics/1
+  def destroy
+    @politic.destroy
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_politic
+      @politic = Politic.find(params[:id])
+    end
+
+    # Only allow a list of trusted parameters through.
+    def politic_params
+      params.require(:politic).permit(:governor, :senator, :congressmen, :flag, :electoral)
+    end
+end
