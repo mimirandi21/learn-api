@@ -5,7 +5,7 @@ class CreateGenerals < ActiveRecord::Migration[6.1]
       t.date :year
       t.integer :order
       t.string :motto
-      t.array :nickname
+      t.string :nickname, array: true, default: []
       t.integer :population
       t.integer :poprank
       t.integer :size

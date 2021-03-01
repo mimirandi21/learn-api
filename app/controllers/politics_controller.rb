@@ -3,9 +3,9 @@ class PoliticsController < ApplicationController
 
   # GET /politics
   def index
-    @politics = Politic.all
+    @politics_data = Politic.all
 
-    render json: @politics
+    render_politics
   end
 
   # GET /politics/1
@@ -15,7 +15,7 @@ class PoliticsController < ApplicationController
 
   # POST /politics
   def create
-    @politic = Politic.new(politic_params)
+    @politics_data = Politic.new(politic_params)
 
     if @politic.save
       render json: @politic, status: :created, location: @politic
@@ -47,5 +47,9 @@ class PoliticsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def politic_params
       params.require(:politic).permit(:governor, :senator, :congressmen, :flag, :electoral)
+    end
+
+    def render_politics
+      render json: PoliticsSerializer.new(@politics_data).to_serialized_json
     end
 end

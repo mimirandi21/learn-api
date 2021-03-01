@@ -3,9 +3,9 @@ class SportsTeamsController < ApplicationController
 
   # GET /sports_teams
   def index
-    @sports_teams = SportsTeam.all
+    @sports_data = SportsTeam.all
 
-    render json: @sports_teams
+    render_sports_teams
   end
 
   # GET /sports_teams/1
@@ -15,7 +15,7 @@ class SportsTeamsController < ApplicationController
 
   # POST /sports_teams
   def create
-    @sports_team = SportsTeam.new(sports_team_params)
+    @sports_data = SportsTeam.new(sports_team_params)
 
     if @sports_team.save
       render json: @sports_team, status: :created, location: @sports_team
@@ -47,5 +47,9 @@ class SportsTeamsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def sports_team_params
       params.require(:sports_team).permit(:teamname, :abbr, :league, :homefield, :logo, :website)
+    end
+
+    def render_sports_teams
+      render json: SportsTeamsSerializer.new(@sports_data).to_serialized_json
     end
 end
