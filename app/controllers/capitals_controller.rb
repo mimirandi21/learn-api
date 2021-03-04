@@ -1,21 +1,18 @@
 class CapitalsController < ApplicationController
   before_action :set_capital, only: [:show, :update, :destroy]
 
-  # GET /capitals
   def index
-    @capitals = Capital.all
+    @capitals_data = Capital.all
 
-    render json: @capitals
+    render_capitals
   end
 
-  # GET /capitals/1
   def show
     render json: @capital
   end
 
-  # POST /capitals
   def create
-    @capital = Capital.new(capital_params)
+    @capitals_data = Capital.new(capital_params)
 
     if @capital.save
       render json: @capital, status: :created, location: @capital
@@ -24,7 +21,6 @@ class CapitalsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /capitals/1
   def update
     if @capital.update(capital_params)
       render json: @capital
@@ -33,7 +29,6 @@ class CapitalsController < ApplicationController
     end
   end
 
-  # DELETE /capitals/1
   def destroy
     @capital.destroy
   end
@@ -41,11 +36,15 @@ class CapitalsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_capital
-      @capital = Capital.find(params[:id])
+      @capital = Gapital.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def capital_params
-      params.require(:capital).permit(:usstate, :abbr, :capital)
+      params.require(:capital).permit(:abbr, :usstate, :capital)
+    end
+
+    def render_capitals
+      render json: CapitalsSerializer.new(@capitals_data).to_serialized_json
     end
 end

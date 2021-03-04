@@ -1,21 +1,18 @@
 class GeneralsController < ApplicationController
   before_action :set_general, only: [:show, :update, :destroy]
 
-  # GET /generals
   def index
-    @generals = General.all
+    @general_data = General.all
 
-    render json: @generals
+    render_generals
   end
 
-  # GET /generals/1
   def show
     render json: @general
   end
 
-  # POST /generals
   def create
-    @general = General.new(general_params)
+    @general_data = General.new(general_params)
 
     if @general.save
       render json: @general, status: :created, location: @general
@@ -24,7 +21,6 @@ class GeneralsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /generals/1
   def update
     if @general.update(general_params)
       render json: @general
@@ -33,7 +29,6 @@ class GeneralsController < ApplicationController
     end
   end
 
-  # DELETE /generals/1
   def destroy
     @general.destroy
   end
@@ -47,5 +42,9 @@ class GeneralsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def general_params
       params.require(:general).permit(:abbr, :year, :order, :motto, :nickname, :population, :poprank, :size, :sizerank, :largestcity, :website, :bird, :birdimg, :flower, :flowerimg, :tree, :treeimg)
+    end
+
+    def render_generals
+      render json: GeneralsSerializer.new(@general_data).to_serialized_json
     end
 end
