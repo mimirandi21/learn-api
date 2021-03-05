@@ -11,7 +11,6 @@ class CreateGenerals < ActiveRecord::Migration[6.1]
       t.integer :size
       t.integer :sizerank
       t.string :largestcity
-      t.string :website
       t.string :bird
       t.string :birdimg
       t.string :flower

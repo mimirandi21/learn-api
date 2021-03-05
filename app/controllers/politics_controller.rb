@@ -46,7 +46,7 @@ class PoliticsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def politic_params
-      params.require(:politic).permit(:governor, :senator, :congressmen, :flag, :electoral)
+      params.require(:politic).permit(:website, :governor, :senator, :congressmen, :flag, :electoral)
     end
 
     def render_politics

@@ -7,7 +7,7 @@ class CreatePolitics < ActiveRecord::Migration[6.1]
       t.string :congressmen, array: true, default: []
       t.string :flag
       t.integer :electoral
-
+      t.string :website
     end
   end
 end

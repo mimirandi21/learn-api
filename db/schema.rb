@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 2021_02_23_220651) do
     t.integer "size"
     t.integer "sizerank"
     t.string "largestcity"
-    t.string "website"
     t.string "bird"
     t.string "birdimg"
     t.string "flower"
@@ -49,6 +48,7 @@ ActiveRecord::Schema.define(version: 2021_02_23_220651) do
     t.string "congressmen", default: [], array: true
     t.string "flag"
     t.integer "electoral"
+    t.string "website"
   end
 
   create_table "sports_teams", force: :cascade do |t|
