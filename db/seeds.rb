@@ -1,7 +1,7 @@
 Capital.create(usstate: "Alabama", abbr: "AL", capital: "Montgomery")
 Capital.create(usstate:"Alaska", abbr: "AK", capital: "Juneau")
 Capital.create(usstate: "Arizona", abbr: "AZ", capital: "Phoenix")
-Capital.create(usstate: "Arkansas", abbr: "AK", capital: "Little Rock")
+Capital.create(usstate: "Arkansas", abbr: "AR", capital: "Little Rock")
 Capital.create(usstate: "California", abbr: "CA", capital: "Sacramento")
 Capital.create(usstate: "Colorado", abbr: "CO", capital: "Denver")
 Capital.create(usstate: "Connecticut", abbr: "CT", capital: "Hartford")

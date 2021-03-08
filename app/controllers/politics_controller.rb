@@ -49,6 +49,7 @@ class PoliticsController < ApplicationController
       params.require(:politic).permit(:website, :governor, :senator, :congressmen, :flag, :electoral)
     end
 
+    # use serializer to format data to send to front end
     def render_politics
       render json: PoliticsSerializer.new(@politics_data).to_serialized_json
     end

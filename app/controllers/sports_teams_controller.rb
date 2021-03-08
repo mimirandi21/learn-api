@@ -49,6 +49,7 @@ class SportsTeamsController < ApplicationController
       params.require(:sports_team).permit(:teamname, :abbr, :league, :homefield, :logo, :website)
     end
 
+    # use serializer to format data to send to front end
     def render_sports_teams
       render json: SportsTeamsSerializer.new(@sports_data).to_serialized_json
     end
