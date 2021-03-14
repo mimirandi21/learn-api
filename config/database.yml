@@ -94,6 +94,7 @@ test:
 #
 production:
   <<: *default
-  database: learn_api_production
-  username: learn_api
-  password: <%= ENV['LEARN_API_DATABASE_PASSWORD'] %>
+  url: https://afternoon-chamber-94748.herokuapp.com/
+  # database: 
+  # username: learn_api
+  # password: <%= ENV['LEARN_API_DATABASE_PASSWORD'] %>
