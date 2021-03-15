@@ -94,6 +94,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: learn_api_production
   username: learn_api
-  password: <%= ENV['LEARN_API_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
